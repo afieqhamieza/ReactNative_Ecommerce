@@ -53,7 +53,6 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingTop: 40,
         paddingHorizontal: 20,
-
     },
 
     productName: {
@@ -73,5 +72,8 @@ const styles = StyleSheet.create({
     productImage: {
         width: 120,
         height: 180,
+        left: 18,
+        justifyContent: 'center',
+        alignItems: 'center',
     },
 });
