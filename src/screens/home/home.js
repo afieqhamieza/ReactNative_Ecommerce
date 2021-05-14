@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, FlatList, Image } from 'react-native';
 import { AppLoading } from 'expo';
 import { MaterialIcons } from '@expo/vector-icons';
 
-
+import Card from '/Users/afieqhamieza/Documents/Ecommerce_repo/ReactNative_Ecommerce/myApp/src/components/card.js';
 
 export default function Home() {
 
@@ -29,17 +29,19 @@ export default function Home() {
                 data={product}
                 renderItem={({ item }) => (
                     <View>
-                        <Image
-                            style= { styles.productImage }
-                            source={ item.imagePath }
-                        />
-                        <Text style={styles.productName}>{item.name}</Text>
+                        <Card>
+                            <Image
+                                style={styles.productImage}
+                                source={item.imagePath}
+                            />
+                            <Text style={styles.productName}>{item.name}</Text>
+                            <Text style={styles.productPrice}>{item.price}</Text>
+                        </Card>
                     </View>
-
                 )}
             />
 
-            
+
         </View>
 
     );
@@ -55,14 +57,21 @@ const styles = StyleSheet.create({
     },
 
     productName: {
-        marginTop: 20,
-        padding: 33,
+        // marginTop: 20,
+        padding: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+
+    productPrice: {
+        // marginTop: 20,
+        padding: 10,
         justifyContent: 'center',
         alignItems: 'center',
     },
 
     productImage: {
-        width: 100,
-        height: 150,
+        width: 120,
+        height: 180,
     },
 });
