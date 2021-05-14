@@ -1,23 +1,27 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import { AppLoading } from 'expo';
 
-export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on but it wont connect to github
-        your app! this seems like it is gonna work</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+import Header from './src/components/header/header.js';
+import Home from './src/screens/home/home.js';
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <ScrollView style={styles.container}>
+          <Header />
+          <Home />
+      </ScrollView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#f7f7ff',
+    // alignItems: 'center',
+    // justifyContent: 'center',
   },
 });
