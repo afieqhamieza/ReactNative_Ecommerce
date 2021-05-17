@@ -1,54 +1,58 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { AppLoading } from 'expo';
 import { MaterialIcons } from '@expo/vector-icons';
 
-export default class Header extends React.Component {
-    render() {
-        return (
+import { createStackNavigator } from 'react-navigation-stack';
+import { createAppContainer, StackRouter } from 'react-navigation';
 
-            
-            <View style={styles.container}>
-                <View style={styles.header}>
-                    <Text style={styles.logo}>S H O P A R A</Text>
-                    <MaterialIcons name='shopping-cart' size={20} color={'#220901'} style={styles.cart} />
-                </View>
+export default function Header({ navigation }) {
+    const goToCart = () => {
+        navigation.navigate('Checkout')
+    } 
+
+    return (
+
+        <View style={styles.header}>
+            <View>
+                <Text style={styles.headerText}>ONESIZE</Text>
             </View>
 
-        );
-    }
+            <TouchableOpacity style={styles.headerCart} onPress={goToCart}>
+                <MaterialIcons name='shopping-bag' size={25} color={'#220901'} />
+            </TouchableOpacity>
+        </View>
+
+    );
 }
 
 const styles = StyleSheet.create({
     header: {
         height: 120,
-        marginTop: 0,
         backgroundColor: '#f7f7ff',
         flexDirection: 'row',
         alignItems: 'center',
-        justifyContent: 'center',
         padding: 20,
 
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.9,
         shadowRadius: 3,
+
     },
 
-    cart: {
-        marginLeft: 10,
-        marginRight: 10,
+    headerCart: {
+        marginLeft: 60,
         marginTop: 40,
-        left: 20,
     },
 
-    logo: {
+    headerText: {
         fontSize: 20,
-        marginLeft: 10,
         marginTop: 40,
-        fontStyle: 'italic',
-        fontWeight: 'bold',
+        marginLeft: '40%',
+        fontWeight: '200',
         color: '#292929',
+        letterSpacing: 10,
     },
 });
